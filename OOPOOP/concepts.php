@@ -5,5 +5,5 @@ Member Variable - the data can be accessed by the member functions alone.
 Member Function - defined within a class.used to access object data.
 Constructor - allows an individual to allot an objects properties while the object creation.
 Destructor - used when the object stops working.
-Inheritance - 
-Polymorphism -->
+Inheritance - It derives child classes from the parent class.
+Polymorphism --> It has many forms of inheritance. has a class with simultaneous functions.
