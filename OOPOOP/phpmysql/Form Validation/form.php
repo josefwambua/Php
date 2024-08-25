@@ -1,85 +1,122 @@
 <!DOCTYPE html>
-<htm lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Validation</title>
-    <!-- Include Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label {
+            display: inline;
+            margin-right: 15px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <?php 
-    // Defining variables and setting them to empty values
-    $fullname = $email = $gender = $comment = $number = $age = "";
+<?php 
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 
-    // Check if form is submitted
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $fullname = test_input($_POST['name']);
-        $email = test_input($_POST['email']);
-        $gender = test_input($_POST['gender']);
-        $comment = test_input($_POST['comment']);
-        $number = test_input($_POST['number']);
-        $age = test_input($_POST['age']);
-    }
+// Defining variables and setting them to empty values
+$fullname = $email = $gender = $comment = $number = $age = "";
 
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    ?>
+// Check if form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $fullname = test_input($_POST['name']);
+    $email = test_input($_POST['email']);
+    $gender = test_input($_POST['gender']);
+    $comment = test_input($_POST['comment']);
+    $number = test_input($_POST['number']);
+    $age = test_input($_POST['age']);
+}
+?>
     
-    <div class="container mt-5">
-        <h2>Form Validation</h2>
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" class="mt-4">
-            <!-- Full Name -->
-            <div class="mb-3">
-                <label for="name" class="form-label">Full Name</label>
-                <input type="text" name="name" class="form-control" id="name">
-            </div>
-            <!-- Email -->
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="email">
-            </div>
-            <!-- Number -->
-            <div class="mb-3">
-                <label for="number" class="form-label">Number (Optional)</label>
-                <input type="tel" name="number" class="form-control" id="number">
-            </div>
-            <!-- Age -->
-            <div class="mb-3">
-                <label for="age" class="form-label">Age</label>
-                <input type="number" name="age" class="form-control" id="age">
-            </div>
-            <!-- Comment -->
-            <div class="mb-3">
-                <label for="comment" class="form-label">Comment</label>
-                <textarea name="comment" rows="5" cols="40" class="form-control" id="comment"></textarea>
-            </div>
-            <!-- Gender -->
-            <div class="mb-3">
-                <label class="form-label">Gender</label>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="male" value="male">
-                    <label class="form-check-label" for="male">Male</label>
-                </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-                    <label class="form-check-label" for="female">Female</label>
-                </div>
-            </div>
-            <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary">Submit Form</button>
-        </form>
-
-        <?php
-        // PHP code to display form inputs after submission remains unchanged
-        ?>
-    </div>
-    <!-- Include Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<div class="container">
+    <h2>Form Validation</h2>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="number">Number (Optional)</label>
+            <input type="tel" name="number" id="number">
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age">
+        </div>
+        <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea name="comment" id="comment" rows="3"></textarea>
+        </div>
+        <div class="radio-group">
+            <label>Gender</label>
+            <label><input type="radio" name="gender" value="male"> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+        </div>
+        <button type="submit">Submit Form</button>
+    </form>
 
     <?php
     // Displaying form inputs after submission
@@ -93,5 +130,6 @@
         echo "Gender: " . $gender . "<br>";
     }
     ?>
+</div>
 </body>
 </html>
