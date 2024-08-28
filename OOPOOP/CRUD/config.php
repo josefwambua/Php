@@ -1,10 +1,8 @@
-
 <?php
-
 // config.php file contents
 $servername = "localhost";
-$username ="root";
-$password ="";
+$username = "root";
+$password = "";
 $db = "league";
 
 // Create connection
@@ -20,6 +18,5 @@ if (!$conn->select_db($db)) {
     die ("Can't use db : " . $conn->error);
 }
 
-// Close connection
-$conn->close();
-?>
+// We're removing the $conn->close() line from here.
+// The connection will be closed when the script finishes or when we explicitly close it.
