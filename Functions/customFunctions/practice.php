@@ -30,12 +30,17 @@
 				
 				<?php
 					function Lorem(){
-					echo "Lorem ipsum dolor sit amet, consectet";					
+					echo "Light is on";					
 	
 					}
 
-					Lorem();
-					
+					$lightIsOn = true;
+
+					if($lightIsOn){
+						Lorem();
+					}else{
+						echo "Light is offfffffffffffff bbbbbbbbbbbbbbbbbbbbboooooooooooooooom";
+					}
 				?>
 				
 			</div><!-- end sandbox -->
