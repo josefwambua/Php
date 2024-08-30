@@ -1,52 +1,101 @@
-*{
+* {
     box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
     font-size: 16px;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -webkit-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-}
-body{
-    background-color: lightblue;
-    margin: 0px;
-}
-.register{
-    width: 400px;
-    background-color: whitesmoke;
-    box-shadow: 0 0 9px 0 rgba(255, 255, 255, 0.3);
-    margin: 100px auto;
-}
-.register h1{
-    text-align: center;
-    color: #5b6574;
-    font-size: 24px;
-    padding: 20px 0 20px 0;
-    border-bottom: 1px solid greenyellow;
-}
-.register form{
+body {
+    background-color: #e6ecf0;
+    margin: 0;
+    padding: 20px;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    padding-top: 20px;
+    align-items: center;
+    min-height: 100vh;
 }
-.register form input[type="password"], .register form input[type="text"], .register form input[type="email"]{
-    width: 310px;
-    height: 50px;
-    border: 1px solid cornsilk;
-    margin-bottom: 20px;
-    padding: 0 15px; 
-}
-.register form input[type="submit"]{
+
+.register {
     width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    background-color: green;
-    border: 0;
-    cursor: pointer;
-    font-weight: bolf;
-    color: #ffffff;
-    transition: background-color 0.4s;
+    max-width: 350px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
-.register form input[type="submit"]:hover{
-    background-color: green;
-    transition: background-color 0.3s;
+
+.register::before {
+    content: '';
+    background-image: url('images/@bLackpoPe.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+.register h1 {
+    color: violet;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.register form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.register form input[type="text"],
+.register form input[type="password"],
+.register form input[type="email"] {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e1e8ed;
+    border-radius: 4px;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.register form input::placeholder {
+    color: #aab8c2;
+}
+
+.register form input[type="submit"] {
+    width: 100%;
+    height: 50px;
+    background-color: violet;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.register form input[type="submit"]:hover {
+    background-color: teal;
+}
+
+.register::after {
+    content: 'MADE BY Joseph Wambua';
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    font-size: 12px;
+    color: #657786;
+}
+
+@media (max-width: 600px) {
+    .register {
+        max-width: 90%;
+    }
 }
