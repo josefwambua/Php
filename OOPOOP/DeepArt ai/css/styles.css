@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 90vh;
+}
+
+.card-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.img-cascade {
+    object-fit: cover;
+    width: 100%;
+    height: 450px; /* Adjust this value as needed */
+}
+.carousel-inner > .carousel-item > img {
+    width: 100%;
+    height: 100%; /* Adjust this value as needed */
+    object-fit: cover;
+}
+
+.carousel-inner > .carousel-item {
+    height: 100%; /* Adjust this value as needed */
+}
+
+.carousel-inner > .carousel-item.active {
+    display: block;
+}
+
+
+/* Add this rule to ensure the image container has a defined size */
+.card-img-top {
+    width: 100%;
+    height: 100%;
+}
+
+/* Ensure the image is displayed as a block element */
+.card-img-top {
+    display: block;
+}
+
+/* Apply these styles to the image within the card */
+.card-img-top {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+/* Remove the height from the img-cascade class since it's now handled by the parent */
+.img-cascade {
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Keep the media query as is */
+@media (max-width: 768px) {
+    .card-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.team-image {
+    width: 100%;
+    height: 300spx; /* Adjust this value as needed */
+    object-fit: cover;
+}
+
+.carousel-inner > .carousel-item > img {
+    width: 100%;
+    height: 300px; /* Match the height of the team-image class */
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Center the carousel captions */
+.carousel-caption.position-absolute.bottom-0.start-50.translate-middle-x {
+    transform: translateX(-50%);
+}
+
+
+footer {
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+footer li {
+    display: inline;
+    margin-right: 15px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
