@@ -1,6 +1,8 @@
 <?php
 include "config.php";
 
+
+// declaring empty variables
 $message = '';
 $user = null;
 
@@ -34,6 +36,7 @@ if (isset($_POST['submit'])) {
     $params = [$firstname, $lastname, $email, $gender];
     $types = "ssss";
 
+     // if pasword is not empty
     if (!empty($password)) {
         $sql .= ", password=?";
         $params[] = password_hash($password, PASSWORD_DEFAULT);
